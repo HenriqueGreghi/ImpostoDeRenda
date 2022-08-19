@@ -20,7 +20,7 @@ namespace ImpostoDeRenda
 
             if (salario < primeiraFaixa[1])
             {
-                Console.WriteLine("Isento");
+                imposto = 0;
             }
             else if (salario < segundaFaixa[1])
             {
@@ -37,6 +37,22 @@ namespace ImpostoDeRenda
             {
                 imposto = (salario - terceiraFaixa[1]) * 0.28m + (1500m * 0.18m) + (1000m * 0.08m);
                 
+            }
+        }
+        public void Imprimir()
+        {
+            if(imposto == 0)
+            {
+                Console.WriteLine("Isento");
+            }
+            else if(imposto > 0)
+            {
+                Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
+
+            }
+            else
+            {
+
             }
         }
     }
