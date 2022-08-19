@@ -16,7 +16,10 @@ namespace ImpostoDeRenda
             calc.salario = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             calc.CalculoImposto();
-
+            
+            Console.WriteLine("R$" + calc.imposto.ToString("F2", CultureInfo.InvariantCulture));
         }
+
+
     }
 }
