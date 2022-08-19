@@ -13,7 +13,7 @@ namespace ImpostoDeRenda
             Calculo calc = new Calculo();
 
             Console.WriteLine("Entre com o valor de seu salario:");
-            calc.salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            calc.salario = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             calc.CalculoImposto();
 

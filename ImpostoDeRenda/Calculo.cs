@@ -7,33 +7,36 @@ namespace ImpostoDeRenda
 {
     class Calculo
     {
-        public double salario;
+        public decimal salario;
       public void CalculoImposto()
         {
-           
-            double imposto;
-            double fimPrimeiraFaixa = 2000;
-            double fimSegundaFaixa = 3000;
-            double fimTerceiraFaixa = 4500;
 
-            if (salario < fimPrimeiraFaixa)
+            decimal imposto;
+            //double fimPrimeiraFaixa = 2000;
+            //double fimSegundaFaixa = 3000;
+            //double fimTerceiraFaixa = 4500;
+            var primeiraFaixa = new[] { 0, 2000m };
+            decimal[] segundaFaixa = new decimal[] { 2000.01m, 3000m };
+            decimal[] terceiraFaixa = new decimal[] { 3000.01m, 4500m };
+
+            if (salario < primeiraFaixa[1])
             {
                 Console.WriteLine("Isento");
             }
-            else if (salario < fimSegundaFaixa)
+            else if (salario < segundaFaixa[1])
             {
-                imposto = (salario - fimPrimeiraFaixa) * 0.08;
+                imposto = (salario - primeiraFaixa[1]) * 0.08m;
                 Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
             }
-            else if (salario < fimTerceiraFaixa)
+            else if (salario < terceiraFaixa[1])
             {
-                imposto = (salario - fimSegundaFaixa) * 0.18 + (1000 * 0.08);
+                imposto = (salario - segundaFaixa[1]) * 0.18m + (1000m * 0.08m);
                 Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
 
             }
-            else if (salario > fimTerceiraFaixa)
+            else if (salario > terceiraFaixa[1])
             {
-                imposto = (salario - fimTerceiraFaixa) * 0.28 + (1500 * 0.18) + (1000 * 0.08);
+                imposto = (salario - terceiraFaixa[1]) * 0.28m + (1500m* 0.18m) + (1000m * 0.08m);
                 Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
             }
         }
